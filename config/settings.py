@@ -14,7 +14,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '!(iw-0=co2mp-99=^v$-$!@6c)myw@d!#apmti)keb!cbj955_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -35,6 +35,9 @@ INSTALLED_APPS = [
     'allauth.account',							# 계정관리
     'allauth.socialaccount',					# 소셜 계정 관리
     'allauth.socialaccount.providers.naver',
+    'cart',
+    'coupon',
+    'order',
 ]
 
 MIDDLEWARE = [
@@ -60,6 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart',                         # !!!
             ],
         },
     },
@@ -135,3 +139,6 @@ AUTHENTICATION_BACKENDS = (
 )
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
+CART_ID = 'cart_in_session'
+IAMPORT_KEY = '6850421241979058'
+IAMPORT_SECRET = '1ajNC1ciSLji1szrDwfBBOuDHxRkUSmV2FIEHVXzHhSIJramYpYzescWZ4gTWDPZjyE0tBAaSsTBU3YS'
